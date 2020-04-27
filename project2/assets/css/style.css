@@ -1,0 +1,515 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#go_to_top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+    z-index: 99;
+    cursor: pointer;
+}
+
+#progress_site {
+    visibility: hidden;
+}
+
+.spin {
+    width: 30px;
+    opacity: 0.6;
+    position: absolute;
+    left: 45%;
+}
+
+#intro {
+    background-image: url("../media/computer_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-attachment: fixed;
+    height: calc(100vh - 64px);
+    color: whitesmoke;
+    padding-bottom: 30em;
+    -webkit-box-shadow: 4px 7px 12px 4px #757575;
+    box-shadow: 4px 7px 12px 4px #757575;
+}
+
+#degrees_undergrad_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#degrees-undergrad {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#degrees-undergrad>div {
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+}
+
+
+.degrees-undergrad-name>h5 {
+    padding: 0.5em;
+    margin-top: 1em;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.degrees-undergrad-name:hover >h5 {
+    font-size: 160%;
+    cursor: pointer;
+}
+
+.degrees-undergrad-name>p {
+    font-size: 120%;
+    padding-bottom: 2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.learn_more {
+    cursor: pointer;
+    color: #009CBD;
+}
+
+.learn_more:hover {
+    color: #C4D600;
+}
+
+#degrees_grad_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#degrees-grad {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#degrees-grad>div {
+    width: 30%;
+    margin: 1em;
+    text-align: center;
+}
+
+
+.degrees-grad-name>h5 {
+    padding: 0.5em;
+    margin-top: 1em;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.degrees-grad-name:hover>h5 {
+    font-size: 170%;
+    cursor: pointer;
+}
+
+.degrees-grad-name>p {
+    font-size: 120%;
+    padding-bottom: 2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.modal-card-title {
+    color: #009CBD;
+}
+
+
+#adv_degree_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+.adv-cert-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.adv-cert-content>div {
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+}
+
+.grad-advanced-card>h5 {
+    padding: 0.5em;
+    margin-top: 1em;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+#minors-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#minors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#minors-container>div {
+    width: 20%;
+    margin: 1em;
+    text-align: center;
+}
+
+.minors-name>h5 {
+    padding: 0.5em;
+    margin-top: 1em;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.minors-name:hover>h5 {
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.minors-name>p {
+    font-size: 120%;
+    padding-bottom: 2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+#employment-container {
+    padding-bottom: 2em;
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    -webkit-box-shadow: 4px 4px 12px 4px #757575;
+    box-shadow: 4px 4px 12px 4px #757575;
+}
+
+#employment_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+.emp_title {
+    padding: 0.5em;
+    margin-top: 1em;
+    font-size: 200%;
+    font-weight: bold;
+    color: #009CBD;
+    text-decoration: underline;
+}
+
+.employment_content {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 125%;
+}
+
+.degrees_content {
+    color: whitesmoke;
+    font-size: 125%;
+}
+
+#degree-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#degree-stats>div {
+    width: 25%;
+    margin: 1em;
+    margin-top: 0;
+    text-align: center;
+    padding: 1em;
+}
+
+#employers-list>li,
+#careers-list>li {
+    display: inline;
+    margin: 1em;
+    font-size: 105%;
+    color: #F76902;
+}
+
+#map_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#tables-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -10em;
+}
+
+#tables-container>div {
+    width: 40%;
+    margin: 1em;
+    text-align: center;
+    padding-bottom: 4em;
+    color: #F76902;
+}
+
+.table-name:hover>h5 {
+    font-size: 200%;
+    cursor: pointer;
+}
+
+.table-name>h5{
+    font-size: 170%;
+}
+
+#people_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#people_subtitle {
+    text-align: center;
+    font-style: oblique;
+    font-size: 70%;
+    color: darkgray;
+    margin-bottom: 1em;
+}
+
+#tab-content>div {
+    display: none;
+}
+
+#tab-content>div.is-active {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
+#tab-content>div>div {
+    width: 20%;
+    margin: 1em;
+    text-align: center;
+    border: 3px solid #F76902;
+    cursor: pointer;
+}
+
+.people_name {
+    font-size: 150%;
+    padding: 0.3em;
+    font-weight: bold;
+    color: #009CBD;
+}
+
+.box:hover > .people_name {
+    font-size: 170%;
+}
+
+.people_image_title {
+    text-align: center;
+    font-style: oblique;
+    font-size: 100%;
+    color: #C4D600;
+    margin-bottom: 1em;
+}
+
+.modal-card-faculty-title,
+.modal-card-staff-title {
+    color: darkgray;
+    font-size: 70%;
+    font-style: oblique;
+}
+
+
+#research_interest {
+    padding-bottom: 2em;
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    -webkit-box-shadow: 4px 4px 12px 4px #757575;
+    box-shadow: 4px 4px 12px 4px #757575;
+}
+
+#interest_title,
+#faculty_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#interest_subtitle,
+#faculty_subtitle {
+    text-align: center;
+    font-style: oblique;
+    font-size: 70%;
+    color: darkgray;
+    margin-bottom: 1em;
+}
+
+#interest-container,
+#faculty-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#interest-container>div {
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
+}
+
+#faculty-container>div {
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
+}
+
+.interest_name {
+    font-size: 150%;
+    padding: 0.3em;
+    font-weight: bold;
+    color: #009CBD;
+}
+
+#resources {
+    -webkit-box-shadow: 4px 4px 12px 4px #757575;
+    box-shadow: 4px 4px 12px 4px #757575;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#resources-content {
+    display: flex;
+    padding-bottom: 2em;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+#resources_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+.resources_title_box {
+    padding-top: 0.4em; padding-bottom: 0.5em; font-size: 170%; font-weight: bold; color: #009CBD;
+}
+
+#resources_subtitle {
+    text-align: center;
+    font-style: oblique;
+    font-size: 70%;
+    color: darkgray;
+    margin-bottom: 1em;
+}
+
+.resources-box {
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
+}
+
+.faculty-box {
+    border: 3px solid #F76902;
+    cursor: pointer;
+}
+
+#social_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+    color: #F76902;
+    margin-top: 1em;
+}
+
+#social_subtitle {
+    text-align: center;
+    font-size: 110%;
+    color: #009CBD;
+    margin-bottom: 0.4em;
+}
+
+#social_by {
+    text-align: center;
+    font-style: oblique;
+    font-size: 80%;
+    color: darkgray;
+    margin-bottom: 1em;
+}
+
+#social_icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social_icons:first-child {
+    margin-right: 2em;
+}
+
+.social_icons {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#footer-content {
+    background-color: darkgray;
+    padding-top: 2em;
+    padding-bottom: 5em;
+    display: flex;
+}
+
+#quick_links,
+#news {
+    display: block;
+}
+
+.box,
+.card {
+    cursor: pointer;
+}
+
+.modal_open_staff:hover>h5 {
+    font-size: 170%;
+}
+
+.modal_open_staff:hover>h1 {
+    font-size: 200%;
+}

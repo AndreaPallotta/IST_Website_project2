@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>iSchool</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- jquery UI (required to support animation library. Not used directly) -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- achorScroll.js - jQuery plugin for smooth scrolling -->
+	<script src="assets/js/jquery.anchorScroll.js"></script>
+	<!-- font-awesome icons -->
+	<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<!-- textillate.js - jQuery plugin used for text animation (requires lettering.js and animate.css) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
+	<!-- lattering.js - jQuery plugin used for text animation -->
+	<script src="assets/js/jquery.lettering.js"></script>
+	<!-- lazyload.js - jQuery plugin used for loading images on scroll (partially works when connection is slow) -->
+	<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+	<!-- dataTables.js - jQuery plugin to format tables (used for coop and employers tables) -->
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<!-- my script -->
+	<script src="assets/js/script.js"></script>
+	<!-- bulma.css - front-end framework -- CSS ONLY -- I coded the script to make it work -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<!-- font-awesome icons -->
+	<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+	<!-- animate.css - used for text animation -->
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- dataTables.css - jQuery plugin to format tables -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+	<!-- my style -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<style>
+		/* style for navbar for desktop */
+		@media screen and (min-width: 1024px) {
+			.navbar {
+				position: sticky;
+				top: 0;
+			}
+
+			#progress_site {
+				width: 100vw;
+				position: sticky;
+				height: 5px;
+				visibility: visible;
+				z-index: 30;
+				padding: 0;
+				margin: 0;
+			}
+		}
+
+		.intro_text {
+			color: #F76902;
+			font-size: 600%;
+			padding-left: 37%;
+			padding-top: 5%;
+			-webkit-text-stroke: 1px darkgrey;
+
+		}
+
+		iframe {
+			width: 1000px;
+			height: 1000px;
+			margin-top: -10em;
+		}
+
+		#maps {
+			text-align: center;
+		}
+
+		#about {
+			background-color: white;
+			color: black;
+			margin-left: 15%;
+			margin-right: 15%;
+			margin-top: 5%;
+			text-align: center;
+			padding: 3%;
+			border-radius: 7px;
+		}
+
+		#about_title {
+			font-size: 300%;
+			color: dimgray;
+			font-weight: bold;
+		}
+
+		hr {
+			border-top: 1px dashed white;
+		}
+
+		#about_description {
+			font-weight: lighter;
+			color: grey;
+		}
+
+		#about_quote {
+			padding-top: 2em;
+			font-weight: lighter;
+			color: darkgrey;
+			font-style: oblique;
+		}
+
+		#about_quoteAuthor {
+			font-style: italic;
+			color: #F76902;
+		}
+
+		/* chevron to scroll down */
+		#chevron_bottom {
+			position: absolute;
+			;
+			bottom: 2em;
+			color: black;
+		}
+
+		#chevron_bottom::before {
+			border-style: solid;
+			border-width: 0.1em 0.1em 0 0;
+			content: '';
+			display: inline-block;
+			height: 1em;
+			left: 0.15em;
+			top: 0.15em;
+			transform: rotate(-45deg);
+			vertical-align: top;
+			width: 1em;
+		}
+
+		#chevron_bottom:before {
+			top: 0;
+			transform: rotate(135deg);
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Nav Bar -->
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<!-- RIT logo -->
+			<a href="#intro" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+				<img src="assets/media/rit_logo.png" width="112" height="28">
+			</a>
+
+			<!-- burger menu for mobile view -->
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+
+		<div class="navbar-menu">
+			<div class="navbar-start">
+				<a href="#about" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+					About
+				</a>
+
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a href="#" class="navbar-link anchor-scroll" data-class-to="body" data-on-scroll="blur">
+						Degrees
+					</a>
+
+					<div class="navbar-dropdown">
+						<a href="#degrees-undergrad" class="navbar-item anchor-scroll" data-class-to="body"
+							data-on-scroll="blur">
+							Undergraduate
+						</a>
+
+						<a href="#degrees-grad" class="navbar-item anchor-scroll" data-class-to="body"
+							data-on-scroll="blur">
+							Graduate
+						</a>
+
+						<a href="#minors" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+							Minors
+						</a>
+					</div>
+				</div>
+
+				<a href="#employment" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+					Employment
+				</a>
+
+
+				<a href="#people" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+					People
+				</a>
+
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a href="#" class="navbar-link anchor-scroll" data-class-to="body" data-on-scroll="blur">
+						Research
+					</a>
+
+					<div class="navbar-dropdown">
+						<a href="#research_interest" class="navbar-item anchor-scroll" data-class-to="body"
+							data-on-scroll="blur">
+							Areas of Interest
+						</a>
+						<a href="#research_faculty" class="navbar-item anchor-scroll" data-class-to="body"
+							data-on-scroll="blur">
+							Faculty
+						</a>
+					</div>
+				</div>
+
+				<a href="#resources" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+					Resources
+				</a>
+
+
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a href="#" class="navbar-link anchor-scroll" data-class-to="body" data-on-scroll="blur">
+						More
+					</a>
+
+					<div class="navbar-dropdown">
+						<a href="#maps" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+							Map
+						</a>
+
+						<a href="#footer" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+							News
+						</a>
+						<a href="#footer" class="navbar-item anchor-scroll" data-class-to="body" data-on-scroll="blur">
+							Apply Now
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- End of Nav Bar -->
+
+	<!-- Progress Bar -->
+	<progress class="progress is-info" id="progress_site" value="0" max="100"></progress>
+
+	<!-- Font-awesome icon -->
+	<span id="go_to_top"><i class="fas fa-arrow-up fa-3x"
+			style="color:#84BD00; -webkit-text-stroke: 1px black;"></i></span>
+
+	<script>
+		// icon disappears when not on top of the page
+		$(window).scroll(function () {
+			if ($(this).scrollTop()) {
+				$('#go_to_top').fadeIn();
+			} else {
+				$('#go_to_top').fadeOut();
+			}
+		});
+		// when icon is clicked, go back to top of menu
+		$("#go_to_top").click(function () {
+			$("html, body").animate({
+				scrollTop: 0
+			}, 1000);
+		});
+	</script>
+
+
+
+
+	<!-- landing screen -->
+	<section id="intro">
+		<h1 class="intro_text">iSchool @ RIT</h1>
+		<div id="about">
+			<div id="about_title"></div>
+			<hr>
+			<div id="about_description"></div>
+			<div id="about_quote"></div>
+			<div id="about_quoteAuthor"></div>
+			<a href="#degrees" class="anchor-scroll" data-class-to="body" data-on-scroll="blur"><span
+					id="chevron_bottom"></span></a>
+		</div>
+	</section>
+
+	<!-- Animation of the screen -->
+	<script>
+		$('.intro_text').textillate({
+
+			loop: true,
+			minDisplayTime: 3000,
+			initialDelay: 0,
+			autoStart: true,
+			outEffects: [],
+			in: {
+				effect: 'fadeInLeftBig',
+				delayScale: 2,
+				delay: 70,
+				sync: false,
+				shuffle: false,
+				reverse: false,
+				callback: function () {}
+			},
+
+			out: {
+				effect: 'fadeOutRightBig',
+				delayScale: 2,
+				delay: 70,
+				sync: false,
+				shuffle: false,
+				reverse: false,
+				callback: function () {}
+			},
+
+			callback: function () {},
+			type: 'char'
+		});
+	</script>
+
+	<section id="degrees">
+		<!-- Undergraduate Degrees -->
+		<h1 id="degrees_undergrad_title">Undergraduate Degrees</h1>
+		<div id="degrees-undergrad"></div>
+
+		<!-- WMC modal screen -->
+		<div id="modal_wmc" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="wmc_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="wmc_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- HCC modal screen -->
+		<div id="modal_hcc" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="hcc_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="hcc_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- CIT modal screen -->
+		<div id="modal_cit" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="cit_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="cit_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- Graduate Degrees -->
+		<h1 id="degrees_grad_title">Graduate Degrees</h1>
+		<div id="degrees-grad"></div>
+
+		<!-- IST modal screen -->
+		<div id="modal_ist" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="ist_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="ist_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- HCI modal screen -->
+		<div id="modal_hci" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="hci_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="hci_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- NSA modal screen -->
+		<div id="modal_nsa" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="nsa_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="nsa_body">
+					<h1 style="font-size: 150%; color: #F76902; font-weight: bold; padding-bottom: 0.4em;">Concentrations</h1>
+				</section>
+			</div>
+		</div>
+
+		<!-- Advanced certificates -->
+		<div class="grad-advanced-cert">
+			<div class="adv-cert-content"></div>
+		</div>
+
+		<!-- Minors -->
+		<div id="minors">
+			<h1 id="minors-title">Undergraduate minors</h1>
+			<div id="minors-container"></div>
+
+			<!-- DBDDI modal screen -->
+			<div id="modal_dbddi" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="dbddi_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="dbddi_body"></section>
+					<footer class="modal-card-foot" id="dbddi_footer"></footer>
+				</div>
+			</div>
+
+			<!-- GIS modal screen -->
+			<div id="modal_gis" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="gis_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="gis_body"></section>
+					<footer class="modal-card-foot" id="gis_footer"></footer>
+				</div>
+			</div>
+
+			<!-- MED_IT modal screen -->
+			<div id="modal_med" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="med_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="med_body"></section>
+					<footer class="modal-card-foot" id="med_footer"></footer>
+				</div>
+			</div>
+
+			<!-- MDDEV modal screen -->
+			<div id="modal_mddev" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="mddev_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="mddev_body"></section>
+					<footer class="modal-card-foot" id="mddev_footer"></footer>
+				</div>
+			</div>
+
+			<!-- MDEV modal screen -->
+			<div id="modal_mdev" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="mdev_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="mdev_body"></section>
+					<footer class="modal-card-foot" id="mdev_footer"></footer>
+				</div>
+			</div>
+
+			<!-- NETSYS modal screen -->
+			<div id="modal_netsys" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="netsys_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="netsys_body"></section>
+					<footer class="modal-card-foot" id="netsys_footer"></footer>
+				</div>
+			</div>
+
+			<!-- WEBDD modal screen -->
+			<div id="modal_webdd" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="webdd_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="webdd_body"></section>
+					<footer class="modal-card-foot" id="webdd_footer"></footer>
+				</div>
+			</div>
+
+			<!-- WEBD modal screen -->
+			<div id="modal_webd" class="modal">
+				<div class="modal-background"></div>
+				<div class="modal-card">
+					<header class="modal-card-head">
+						<p class="modal-card-title" id="webd_title"></p>
+						<button class="delete" aria-label="close"></button>
+					</header>
+					<section class="modal-card-body" id="webd_body"></section>
+					<footer class="modal-card-foot" id="webd_footer"></footer>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Employment -->
+	<section id="employment">
+		<div id="employment-container"></div>
+		<div id="employers"></div>
+	</section>
+
+	<!-- Map -->
+	<section id="maps">
+		<div id="map_container">
+			<iframe class="frame" style="-webkit-transform:scale(0.5);-moz-transform:scale(0.5);"
+				src="http://ist.rit.edu/api/map.php"></iframe>
+		</div>
+		<div id="tables-container"></div>
+
+		<!-- Co-op modal screen -->
+		<div id="modal_coop" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="coop_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="coop_body"></section>
+			</div>
+		</div>
+
+		<!-- employers modal -->
+		<div id="modal_emp" class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-card">
+				<header class="modal-card-head">
+					<p class="modal-card-title" id="emp_title"></p>
+					<button class="delete" aria-label="close"></button>
+				</header>
+				<section class="modal-card-body" id="emp_body"></section>
+			</div>
+		</div>
+	</section>
+
+	<!-- People -->
+	<section id="people">
+		<!-- Tabs -->
+		<div class="tabs is-centered is-fullwidth is-boxed">
+			<ul>
+				<!-- Faculty -->
+				<li class="is-active" data-tab="faculty">
+					<a>
+						<span class="icon is-big"><i class="fas fa-users" aria-hidden="true"></i></span>
+						<span style="font-size: 130%;">FACULTY</span>
+					</a>
+				</li>
+				<!-- Staff -->
+				<li id="staff_list" data-tab="staff">
+					<a>
+						<span class="icon is-small"><i class="fas fa-user-friends" aria-hidden="true"></i></span>
+						<span style="font-size: 130%;">STAFF</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Tabs content (faculty and staff) -->
+	<div id="tab-content">
+		<div id="faculty-tab-content" class="is-active" data-content="faculty"></div>
+		<div id="staff-tab-content" data-content="staff"></div>
+	</div>
+
+	<!-- Research -->
+	<section id="research">
+		<!-- By Area of Interest -->
+		<div id="research_interest">
+			<div id="interest-container"></div>
+		</div>
+		<!-- By Faculty -->
+		<div id="research_faculty">
+			<div id="faculty-container"></div>
+		</div>
+	</section>
+
+	<!-- Resources -->
+	<section id="resources">
+		<div id="resources-content"></div>
+	</section>
+
+
+	<!-- Footer -->
+	<footer id="footer">
+		<!-- Social -->
+		<div id="social"></div>
+		<div id="footer-content">
+			<!-- Links -->
+			<div style="width: 25%; margin-left: 2em;" id="quick_links"></div>
+			<!-- Copyright -->
+			<div style="width: 60%; font-size: 150%; text-align: center;" id="copyright"></div>
+			<!-- News -->
+			<div style="width: 20%; text-align: right; margin-right: 2em;" id="news">
+			</div>
+		</div>
+	</footer>
+
+
+
+	<script>
+		// set animation for smooth scroll
+		$('.anchor-scroll').anchorScroll({
+			scrollSpeed: 800,
+			offsetTop: 0,
+			onScroll: function () {},
+			scrollEnd: function () {}
+		});
+	</script>
+
+</body>
+
+</html>
